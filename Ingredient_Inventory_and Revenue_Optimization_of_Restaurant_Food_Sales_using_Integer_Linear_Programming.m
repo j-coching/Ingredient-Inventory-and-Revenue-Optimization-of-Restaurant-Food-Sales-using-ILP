@@ -1,4 +1,4 @@
-%Declare Variables
+% Declare Variables for Menu Items
 x1 = optimvar('x1','type','integer','LowerBound',0,'UpperBound',Inf);
 x2 = optimvar('x2','type','integer','LowerBound',0,'UpperBound',Inf);
 x3 = optimvar('x3','type','integer','LowerBound',0,'UpperBound',Inf);
@@ -13,6 +13,7 @@ x11 = optimvar('x11','type','integer','LowerBound',0,'UpperBound',Inf);
 x12 = optimvar('x12','type','integer','LowerBound',0,'UpperBound',Inf);
 x13 = optimvar('x13','type','integer','LowerBound',0,'UpperBound',Inf);
 
+% Declare Variables for Ingredient Packages
 L1 = optimvar('L1','type','integer','lowerBound',0,'UpperBound',Inf);
 L2 = optimvar('L2','type','integer','lowerBound',0,'UpperBound',Inf);
 L3 = optimvar('L3','type','integer','lowerBound',0,'UpperBound',Inf);
@@ -48,6 +49,7 @@ L32 = optimvar('L32','type','integer','lowerBound',0,'UpperBound',Inf);
 L33 = optimvar('L33','type','integer','lowerBound',0,'UpperBound',Inf);
 L34 = optimvar('L34','type','integer','lowerBound',0,'UpperBound',Inf);
 
+% Defining the Objective Function
 prob = optimproblem ('Objective',1030*x1 + 862*x2 + 791*x3 + 1983*x4 + ...
     782*x5 + 540*x6 + 387*x7 + 759*x8 + 571*x9 + 1471*x10 + 273*x11 + ...
     799*x12 + 341*x13 - (180*L1 + 9.5*L2 + 175*L3 + 22*L4 + 45*L5 + ...
@@ -58,9 +60,7 @@ prob = optimproblem ('Objective',1030*x1 + 862*x2 + 791*x3 + 1983*x4 + ...
     'ObjectiveSense', 'max');
 
 % Constraints for Ingredient Usages for Each Menu Item
-prob.Constraints.c1 = 1.984*x1 + 0*x2 + 0*x3 + 0*x4+ 0*x5 + 0*x6 + ...
-0*x7 + 0*x8 + 0*x9 + 1.984*x10 + 0*x11 + 0*x12 + 0*x13 <= L1;
-
+prob.Constraints.c1 = 1.984*x1 + 0*x2 + 0*x3 + 0*x4+ 0*x5 + 0*x6 + 0*x7 + 0*x8 + 0*x9 + 1.984*x10 + 0*x11 + 0*x12 + 0*x13 <= L1;
 prob.Constraints.c2 = 0.091*x1 + 0*x2 + 0*x3 + 0*x4+ 0*x5 + 0*x6 + 0*x7 + 0*x8 + 0*x9 + 0*x10 + 0*x11 + 0*x12 + 0*x13 <= L2;
 prob.Constraints.c3 = 0.118*x1 + 0*x2 + 0*x3 + 0*x4+ 0*x5 + 0*x6 + 0*x7 + 0*x8 + 0*x9 + 0*x10 + 0*x11 + 0*x12 + 0*x13 <= L3;
 prob.Constraints.c4 = 1*x1 + 0*x2 + 0*x3 + 0*x4+ 0*x5 + 0*x6 + 0*x7 + 0*x8 + 0*x9 + 0*x10 + 0*x11 + 0*x12 + 0*x13 <= L4;
@@ -115,6 +115,7 @@ prob.Constraints.c46 = 180*L1 + 9.5*L2 + 175*L3 + 22*L4 + 45*L5 + ...
     48*L20 + 125*L21 + 20*L22 + 105*L23 + 135*L24 + 30*L25 + 47*L26 + ...
     160*L27 + 550*L28 + 450*L29 + 33*L30 + 35*L31 + 143*L32 <= 150000;
 
+% Simulation Script
 [solution_set,net_profit] = solve(prob) ; %ILP Setting 
 
 % Upon simulation, type in command window "solution_set" and "net_profit"
