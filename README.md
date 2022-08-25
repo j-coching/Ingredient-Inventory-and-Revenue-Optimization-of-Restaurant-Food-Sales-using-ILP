@@ -1,4 +1,4 @@
-# Ingredient-Inventory-and-Revenue-Optimization-of-Restaurant-Food-Sales-using-ILP
+# Ingredient Inventory and Revenue Optimization of Restaurant Food Sales using Integer Linear Programming
 MATLAB .m file for IEEE HNICEM Conference Paper entitled "Ingredient Inventory and Revenue Optimization of Restaurant Food Sales using Integer Linear Programming".
 
 <b><h3> Abstract </h3></b>
